@@ -7,7 +7,7 @@
       private $db;
       private $conectar;
 
-      public function __construct($table){
+      public function __construct($table){ // Constructor de la clase.
 
           $this->table=(string) $table;
 

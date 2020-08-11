@@ -4,7 +4,8 @@
  */
 class Conectar{
 
-		private $driver, $host, $user, $pass, $database, $charset; // Atributos de clase, que es todo lo que hemos configurado en config/database.php
+        private $driver, $host, $user, $pass, $database, $charset; /* Atributos de clase, que es todo lo que hemos configurado
+                                                                      en config/database.php */
 
 	public function __construct(){ /* Constructor que devuelve el array creado en config/database.php
 	                                  y cada uno de los valores del array los metemos en los atributos */
@@ -12,7 +13,7 @@ class Conectar{
         $db_cfg = require_once 'config/database.php'; /* Se guarda dentro de esta variable el array devuelto
                                                          en el archivo config/database.php */
 
-        //Se guarda en cada uno de los atributos los valores devueltos por ek array.
+        //Se guarda en cada uno de los atributos los valores devueltos por el array.
         $this->driver=$db_cfg["driver"];
         $this->host=$db_cfg["host"];
         $this->user=$db_cfg["user"];
@@ -32,7 +33,7 @@ class Conectar{
         return $con; // Devolvemos la conexión.
 
 	}
-
+    /*
     //Otros métodos para cargar Query Builders o ORM, etc.
     public function startFluent(){
          
@@ -49,7 +50,7 @@ class Conectar{
 
            return $fpdo;
     }	
-	
+	*/
 }
 
 ?>
