@@ -4,7 +4,8 @@
  */
 class Conectar{
 
-        private $driver, $host, $user, $pass, $database, $charset; /* Atributos de clase, que es todo lo que hemos configurado
+        private $driver;
+        private $host, $user, $pass, $database, $charset; /* Atributos de clase, que es todo lo que hemos configurado
                                                                       en config/database.php */
 
 	public function __construct(){ /* Constructor que devuelve el array creado en config/database.php
@@ -18,6 +19,7 @@ class Conectar{
         $this->host=$db_cfg["host"];
         $this->user=$db_cfg["user"];
         $this->pass=$db_cfg["pass"];
+        $this->database=$db_cfg["database"];
         $this->charset=$db_cfg["charset"];
 	}
 
@@ -33,7 +35,7 @@ class Conectar{
         return $con; // Devolvemos la conexión.
 
 	}
-    /*
+    
     //Otros métodos para cargar Query Builders o ORM, etc.
     public function startFluent(){
          
@@ -42,7 +44,7 @@ class Conectar{
 
          if($this->driver=="mysql" || $this->driver==null){
 
-             $pdo = new PDO($this->driver.":dbname=".this->database, $this->user, $this->pass);
+             $pdo = new PDO($this->driver.":dbname=".$this->database, $this->user, $this->pass);
 
              $fpdo = new FluentPDO($pdo);
 
@@ -50,7 +52,7 @@ class Conectar{
 
            return $fpdo;
     }	
-	*/
+	
 }
 
 ?>
