@@ -27,7 +27,7 @@ class Conectar{
 
         if($this->driver=="mysql" || $this->driver==null){
 
-        	$con= new mysqli($this->host, $this->user, $this->pass. $this->database);
+        	$con= new mysqli($this->host, $this->user, $this->pass, $this->database);
 
         	$con->query("SET NAMES '".$this->charset."'"); // Esta línea es para setear el utf8 y no nos coloque cualquier charset
         }
