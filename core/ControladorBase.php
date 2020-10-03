@@ -2,6 +2,9 @@
 class ControladorBase{
  
     public function __construct() {
+
+        require_once 'Conectar.php';
+
         require_once 'EntidadBase.php'; /* require_once es para incluir archivo php externo. En caso de que falle,
                                            la aplicación se detiene; a diferencia del include que la 
                                            aplicación sigue funcionando. */
