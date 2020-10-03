@@ -7,14 +7,18 @@
       private $db;
       private $conectar;
 
-      public function __construct($table){ // Constructor de la clase.
+      public function __construct($table, $adapter){ // Constructor de la clase.
 
           $this->table=(string) $table;
 
-
+          /*
           require_once 'Conectar.php';
           $this->conectar=new Conectar();
-          $this->db=$this->conectar->conexion();
+          $this->db=$this->conectar->conexion(); */
+
+          $this->conectar = null;
+          $this->db = $adapter;
+
       }
 
       public function getConectar(){ /* Este método nos permite sacar la conexión a la base de datos desde otro sitio 
