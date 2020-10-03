@@ -3,9 +3,9 @@ class ModeloBase extends EntidadBase{ // Se hereda todo lo que hay en la clase E
     private $table;
     private $fluent;
      
-    public function __construct($table) {
+    public function __construct($table, $adapter) {
         $this->table=(string) $table;
-        parent::__construct($table); // Aquí llamamos el constructor heredado y le pasamos la table
+        parent::__construct($table, $adapter); // Aquí llamamos el constructor heredado y le pasamos la table
          
         $this->fluent=$this->getConetar()->startFluent();
     }
