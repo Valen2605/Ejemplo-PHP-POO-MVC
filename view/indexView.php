@@ -26,13 +26,13 @@
             Contraseña: <input type="password" name="password" class="form-control"/>
             <input type="submit" value="enviar" class="btn btn-success"/>
         </form>
-         
+        
         <div class="col-lg-7">
             <h3>Usuarios</h3>
             <hr/>
         </div>
         <section class="col-lg-7 usuario" style="height:400px;overflow-y:scroll;">
-            <?php foreach($allusers as $user) { //recorremos el array de objetos y obtenemos el valor de las propiedades ?>
+            <?php foreach($allusers as $user) {?>
                 <?php echo $user->id; ?> -
                 <?php echo $user->nombre; ?> -
                 <?php echo $user->apellido; ?> -
@@ -43,12 +43,13 @@
                 <hr/>
             <?php } ?>
         </section>
-        <?php if(isset($allproducts) && count($allproducts)>=1) {?>
-        <div class="col-lg-7">
+		
+		 <?php if(isset($allproducts) && count($allproducts)>=1) { //recorremos el array de objetos y obtenemos el valor de las propiedades ?> 
+		<div class="col-lg-7">
             <h3>Productos</h3>
             <hr/>
         </div>
-         <section class="col-lg-7 producto" style="height:400px;overflow-y:scroll;">
+		 <section class="col-lg-7 producto" style="height:400px;overflow-y:scroll;">
             <?php foreach($allproducts as $product) {?>
                 <?php echo $product->id; ?> -
                 <?php echo $product->nombre; ?> -
@@ -57,8 +58,8 @@
                 <hr/>
             <?php } ?>
         </section>
-<?php } ?>
-<footer class="col-lg-12">
+		 <?php } ?>
+        <footer class="col-lg-12">
             <hr/>
            Ejemplo PHP MySQLi POO MVC - Víctor Robles - <a href="http://victorroblesweb.es">victorroblesweb.es</a> - Copyright &copy; <?php echo  date("Y"); ?>
         </footer>
