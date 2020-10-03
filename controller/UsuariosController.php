@@ -1,21 +1,36 @@
 <?php
 class UsuariosController extends ControladorBase{
+
+    public $conectar;
+    public $adapter;
      
     public function __construct() {
         parent::__construct();
+
+        $this->conectar=new Conectar();
+        $this->adapter=$this->conectar->conexion();
+
     }
      
     public function index(){
          
         //Creamos el objeto usuario
-        $usuario=new Usuario();
+        $usuario=new Usuario($this->adapter);
          
         //Conseguimos todos los usuarios
         $allusers=$usuario->getAll();
+
+        // Creamos el objeto Producto
+        $producto=new Producto($this->adapter);
+
+        //Conseguimos todos los productos
+        $allproducts=$producto->getAll();
+
         
         //Cargamos la vista index y le pasamos valores
         $this->view("index",array(
             "allusers"=>$allusers,
+            "allproducts" => $allproducts,
             "Hola"    =>"Soy Víctor Robles"
         ));
     }
@@ -24,7 +39,7 @@ class UsuariosController extends ControladorBase{
         if(isset($_POST["nombre"])){
              
             //Creamos un usuario
-            $usuario=new Usuario();
+            $usuario=new Usuario($this->adapter);
             $usuario->setNombre($_POST["nombre"]);
             $usuario->setApellido($_POST["apellido"]);
             $usuario->setEmail($_POST["email"]);
@@ -39,7 +54,7 @@ class UsuariosController extends ControladorBase{
         if(isset($_GET["id"])){
             $id=(int)$_GET["id"];
              
-            $usuario=new Usuario();
+            $usuario=new Usuario($this->adapter);
             $usuario->deleteById($id);
         }
         $this->redirect(); // Redirecciona a index con este ControladorUsuario
@@ -47,7 +62,7 @@ class UsuariosController extends ControladorBase{
      
      
     public function hola(){
-        $usuarios=new UsuariosModel();
+        $usuarios=new UsuariosModel($this->adapter);
         $usu=$usuarios->getUnUsuario();
         var_dump($usu);
     }
