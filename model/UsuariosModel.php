@@ -4,7 +4,7 @@ class UsuariosModel extends ModeloBase{
      
     public function __construct($adapter){
         $this->table="usuarios";
-        parent::__construct($this->table,$adapter);
+        parent::__construct($this->table, $adapter);
     }
      
     //Metodos de consulta
