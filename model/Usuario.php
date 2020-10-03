@@ -6,9 +6,9 @@ class Usuario extends EntidadBase{
     private $email; 
     private $password; 
      
-    public function __construct() {
+    public function __construct($adapter) {
         $table="usuarios";
-        parent::__construct($table);
+        parent::__construct($table,$adapter);
     }
      
     public function getId() {
