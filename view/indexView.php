@@ -43,7 +43,22 @@
                 <hr/>
             <?php } ?>
         </section>
-        <footer class="col-lg-12">
+        <?php if(isset($allproducts) && count($allproducts)>=1) {?>
+        <div class="col-lg-7">
+            <h3>Productos</h3>
+            <hr/>
+        </div>
+         <section class="col-lg-7 producto" style="height:400px;overflow-y:scroll;">
+            <?php foreach($allproducts as $product) {?>
+                <?php echo $product->id; ?> -
+                <?php echo $product->nombre; ?> -
+                <?php echo $product->precio; ?> -
+                <?php echo $product->marca; ?>
+                <hr/>
+            <?php } ?>
+        </section>
+<?php } ?>
+<footer class="col-lg-12">
             <hr/>
            Ejemplo PHP MySQLi POO MVC - Víctor Robles - <a href="http://victorroblesweb.es">victorroblesweb.es</a> - Copyright &copy; <?php echo  date("Y"); ?>
         </footer>
