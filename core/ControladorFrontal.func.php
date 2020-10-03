@@ -19,7 +19,7 @@ function cargarAccion($controllerObj,$action){
     $accion=$action;
     $controllerObj->$accion();
 }
-/** Función que  */
+
 function lanzarAccion($controllerObj){
     if(isset($_GET["action"]) && method_exists($controllerObj, $_GET["action"])){
         cargarAccion($controllerObj, $_GET["action"]);
